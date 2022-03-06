@@ -19,6 +19,11 @@ export class AppComponent {
   dateClick = '';
   arrayTimeStampDate = Array();
   x = 0;
+  dateClickPrint = '';
+  showNoColor = Array();
+  showColor = Array();
+
+
 
   yourClick(event: Event) {
     this.hours = 0;
@@ -40,14 +45,16 @@ export class AppComponent {
     this.dateClick =("D"+this.date.getDate()+"M"+this.date.getMonth()
     +"Y"+this.date.getFullYear()+" "+this.hoursCreated+':'
     +this.minutesCreated+':'+this.secondsCreated)
-
+    this.dateClickPrint +=this.dateClick + "\t"
   }
   arrayTimeStamp (){
-    if(this.x<5){
     this.arrayTimeStampDate.push(this.dateClick)
-    console.log(this.arrayTimeStampDate)
+    //console.log(this.arrayTimeStampDate)
+    console.log(this.date.getSeconds())
+    if (this.x <5) {this.showNoColor = this.arrayTimeStampDate}else {this.showColor = this.arrayTimeStampDate}
     this.x++
-  }else{ console.log('%c '+this.dateClick+"\n"+this.arrayTimeStampDate+' ', 'background: #0000FF; color: #FFFFFF');}
-
+  }
+  getColor() {
+    return this.arrayTimeStampDate.length < 5  ? "":"blue";
   }
 }
