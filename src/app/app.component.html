@@ -1,11 +1,5 @@
-<button (click)="yourClick($event)" (click)="onOffParagraphAndLog()" (click)="arrayTimeStamp()">Display Details</button>
+<button (click)="onOffParagraphAndLog()">Display Details</button>
 <p *ngIf="checkOnOff;else showParagraph"></p>
 <ng-template #showParagraph><p>รหัสผ่านลับ: ปลา ชิงชัน</p></ng-template>
-
-<p *ngfor="let i of arrayTimeStampDate">{{showNoColor}}</p>
-<!-- <p  [ngStyle]="{background:getColor()}"
-*ngFor="let menu-item of arrayTimeStampDate">{{arrayTimeStampDate}}</p> -->
-<!--
-<p >{{showNoColor}}</p>
-<p class="backBlue">{{showColor}}</p> -->
-<i class="fa-solid fa-cannabis"></i>
+<p *ngFor="let time of aArrayTimeStampDate">{{time}}</p>
+<p class="blue" *ngFor="let time of bArrayTimeStampDate">{{time}}</p>
